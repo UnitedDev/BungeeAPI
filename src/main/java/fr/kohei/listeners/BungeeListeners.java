@@ -37,7 +37,7 @@ public class BungeeListeners implements Listener {
         ProxyServer.getInstance().getPlayers().forEach(player -> {
             ProfileData data = BungeeAPI.getCommonAPI().getProfile(player.getUniqueId());
             if (data.getRank().permissionPower() >= 50 || data.getRank().permissionPower() == 15) {
-                info.add(new ServerPing.PlayerInfo("§c§l» §c" + player.getName(), player.getUniqueId()));
+                info.add(new ServerPing.PlayerInfo("§6§l» §f" + player.getName(), player.getUniqueId()));
             }
         });
 

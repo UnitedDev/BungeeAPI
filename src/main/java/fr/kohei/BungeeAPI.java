@@ -41,7 +41,7 @@ public class BungeeAPI extends Plugin {
         commandHandler = new CommandHandler(plugin);
         bungeeManager = new BungeeManager(plugin);
         commonAPI = CommonAPI.create();
-        maintenance = false;
+        maintenance = true;
         replys = new ConcurrentHashMap<>();
 
         commonAPI.getMessaging().registerAdapter(CountUpdatePacket.class, null);
