@@ -1,11 +1,11 @@
-package fr.kohei.command.impl;
+package fr.kohei.command;
 
 import com.google.common.base.Preconditions;
 import fr.kohei.command.param.Param;
 import fr.kohei.command.param.ParameterData;
 import fr.kohei.command.param.ParameterType;
 import fr.kohei.command.param.defaults.*;
-import fr.kohei.commands.MessageCommands;
+import fr.kohei.command.impl.MessageCommands;
 import fr.kohei.utils.ChatUtil;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;

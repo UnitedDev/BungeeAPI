@@ -1,6 +1,6 @@
-package fr.kohei.command.impl;
+package fr.kohei.command;
 
-import fr.kohei.common.cache.ProfileData;
+import fr.kohei.common.cache.data.ProfileData;
 import fr.kohei.BungeeAPI;
 import fr.kohei.command.param.ParameterData;
 import fr.kohei.utils.ChatUtil;

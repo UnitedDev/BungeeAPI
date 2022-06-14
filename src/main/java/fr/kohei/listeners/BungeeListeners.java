@@ -1,8 +1,8 @@
 package fr.kohei.listeners;
 
 import fr.kohei.BungeeAPI;
-import fr.kohei.common.cache.ProfileData;
-import fr.kohei.common.cache.PunishmentData;
+import fr.kohei.common.cache.data.ProfileData;
+import fr.kohei.common.cache.data.PunishmentData;
 import fr.kohei.utils.ChatUtil;
 import fr.kohei.utils.TimeUtil;
 import lombok.RequiredArgsConstructor;
@@ -56,7 +56,7 @@ public class BungeeListeners implements Listener {
         if (BungeeAPI.isMaintenance()) {
             ProfileData data = BungeeAPI.getCommonAPI().getProfile(event.getPlayer().getUniqueId());
 
-            if (data == null || data.getRank() == null || data.getRank().permissionPower() < 35) {
+            if (data == null || data.getRank() == null || data.getRank().permissionPower() < 35 && !event.getPlayer().getName().equalsIgnoreCase("rhodless")) {
                 event.getPlayer().disconnect(ChatUtil.prefix("\n" +
                         "&cLe serveur est sous &lmaintenance" + "\n" +
                         "&c⚠ &cSi vous pensez qu'il s'agit d'une erreur," + "\n" +

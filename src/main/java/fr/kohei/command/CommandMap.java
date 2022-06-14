@@ -1,4 +1,4 @@
-package fr.kohei.command.impl;
+package fr.kohei.command;
 
 import java.util.HashMap;
 import java.util.Map;

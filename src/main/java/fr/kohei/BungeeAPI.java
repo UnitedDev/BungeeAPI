@@ -1,12 +1,12 @@
 package fr.kohei;
 
-import fr.kohei.command.impl.CommandHandler;
+import fr.kohei.command.CommandHandler;
 import fr.kohei.common.api.CommonAPI;
-import fr.kohei.common.cache.Division;
-import fr.kohei.common.cache.ProfileData;
+import fr.kohei.common.cache.data.Division;
+import fr.kohei.common.cache.data.ProfileData;
 import fr.kohei.manager.BungeeManager;
-import fr.kohei.packets.CountUpdatePacket;
-import fr.kohei.packets.UpdatePlayersPacket;
+import fr.kohei.pubsub.packets.CountUpdatePacket;
+import fr.kohei.pubsub.packets.UpdatePlayersPacket;
 import fr.kohei.utils.ChatUtil;
 import lombok.Getter;
 import lombok.Setter;

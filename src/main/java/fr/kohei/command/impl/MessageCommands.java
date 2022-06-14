@@ -1,8 +1,8 @@
-package fr.kohei.commands;
+package fr.kohei.command.impl;
 
-import fr.kohei.common.cache.ProfileData;
+import fr.kohei.common.cache.data.ProfileData;
 import fr.kohei.BungeeAPI;
-import fr.kohei.command.impl.Command;
+import fr.kohei.command.Command;
 import fr.kohei.command.param.Param;
 import fr.kohei.utils.ChatUtil;
 import net.md_5.bungee.api.ProxyServer;

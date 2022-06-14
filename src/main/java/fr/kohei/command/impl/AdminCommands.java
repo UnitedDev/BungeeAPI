@@ -1,9 +1,9 @@
-package fr.kohei.commands;
+package fr.kohei.command.impl;
 
-import fr.kohei.common.cache.ProfileData;
-import fr.kohei.common.cache.Rank;
+import fr.kohei.common.cache.data.ProfileData;
+import fr.kohei.common.cache.rank.Rank;
 import fr.kohei.BungeeAPI;
-import fr.kohei.command.impl.Command;
+import fr.kohei.command.Command;
 import fr.kohei.command.param.Param;
 import fr.kohei.utils.ChatUtil;
 import fr.kohei.utils.TimeUtil;
@@ -19,14 +19,12 @@ public class AdminCommands {
 
     @Command(names = "grant", power = 1000)
     public static void grant(ProxiedPlayer sender, @Param(name = "player") ProxiedPlayer player, @Param(name = "rank") String rankName, @Param(name = "duration") String durationString) {
-        Optional<Rank> optionalRank = BungeeAPI.getCommonAPI().getRank(rankName);
+        Rank rank = BungeeAPI.getCommonAPI().getRank(rankName);
 
-        if (!optionalRank.isPresent()) {
+        if (rank == null) {
             sender.sendMessage(ChatUtil.prefix("&cCe grade n'existe pas"));
             return;
         }
-
-        Rank rank = optionalRank.get();
 
         long duration;
         if (durationString.startsWith("p")) {
@@ -58,14 +56,12 @@ public class AdminCommands {
     @Command(names = "rank setpower", power = 1000)
     public static void changePower(ProxiedPlayer sender, @Param(name = "rank") String rankName, @Param(name = "power") int power) {
 
-        Optional<Rank> optionalRank = BungeeAPI.getCommonAPI().getRank(rankName);
+        Rank rank = BungeeAPI.getCommonAPI().getRank(rankName);
 
-        if (!optionalRank.isPresent()) {
+        if (rank == null) {
             sender.sendMessage(ChatUtil.prefix("&cCe grade n'existe pas"));
             return;
         }
-
-        Rank rank = optionalRank.get();
 
         rank.setPermissionPower(power);
         BungeeAPI.getCommonAPI().removeRank(rank.token());
@@ -75,29 +71,26 @@ public class AdminCommands {
 
     @Command(names = "rank delete", power = 1000)
     public static void delete(ProxiedPlayer sender, @Param(name = "rank") String rankName) {
+        Rank rank = BungeeAPI.getCommonAPI().getRank(rankName);
 
-        Optional<Rank> optionalRank = BungeeAPI.getCommonAPI().getRank(rankName);
-
-        if (!optionalRank.isPresent()) {
+        if (rank == null) {
             sender.sendMessage(ChatUtil.prefix("&cCe grade n'existe pas"));
             return;
         }
 
-        BungeeAPI.getCommonAPI().removeRank(optionalRank.get().token());
+        BungeeAPI.getCommonAPI().removeRank(rank.token());
         sender.sendMessage(ChatUtil.prefix("&fVous avez &csupprimé le grade &c" + rankName.toLowerCase(Locale.ROOT)));
     }
 
     @Command(names = "rank setprefix", power = 1000)
     public static void changePrefix(ProxiedPlayer sender, @Param(name = "rank") String rankName, @Param(name = "prefix") String prefix) {
 
-        Optional<Rank> optionalRank = BungeeAPI.getCommonAPI().getRank(rankName);
+        Rank rank = BungeeAPI.getCommonAPI().getRank(rankName);
 
-        if (!optionalRank.isPresent()) {
+        if (rank == null) {
             sender.sendMessage(ChatUtil.prefix("&cCe grade n'existe pas"));
             return;
         }
-
-        Rank rank = optionalRank.get();
 
         rank.setTabPrefix(prefix);
         rank.setChatPrefix(prefix);
@@ -111,14 +104,12 @@ public class AdminCommands {
 
         name = name.toLowerCase(Locale.ROOT);
 
-        Optional<Rank> optionalRank = BungeeAPI.getCommonAPI().getRank(rankName);
+        Rank rank = BungeeAPI.getCommonAPI().getRank(rankName);
 
-        if (!optionalRank.isPresent()) {
+        if (rank == null) {
             sender.sendMessage(ChatUtil.prefix("&cCe grade n'existe pas"));
             return;
         }
-
-        Rank rank = optionalRank.get();
 
         rank.setToken(name);
         BungeeAPI.getCommonAPI().removeRank(rank.token());

@@ -1,8 +1,8 @@
 package fr.kohei.manager;
 
 import fr.kohei.BungeeAPI;
-import fr.kohei.command.impl.CommandHandler;
-import fr.kohei.commands.*;
+import fr.kohei.command.CommandHandler;
+import fr.kohei.command.impl.*;
 import fr.kohei.listeners.BungeeListeners;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;

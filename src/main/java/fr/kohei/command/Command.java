@@ -1,4 +1,4 @@
-package fr.kohei.command.impl;
+package fr.kohei.command;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
